@@ -7,6 +7,8 @@ const {
   getFirst, 
   getLast, 
   getKth,
+  getKthToLast,
+
  } = require("./functionNotes")
 
 // Create a Node class with properties
@@ -28,6 +30,7 @@ class LinkedList {
     this.getFirst = getFirst
     this.getLast = getLast
     this.getKth = getKth
+    this.getKthToLast = getKthToLast
   }
  
 }

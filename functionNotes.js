@@ -104,20 +104,29 @@ function  getLast(){
   }
 
 //    GET KTH retrieve kth (position -> index + 1) element
-function getKth(index){
-    let current = this.head
+function getKth(val, head = this.head){
+    let current = head
     let count = 1
-    while(count < index){
+    while(count < val){
+        current = current.next
         count++
         // update current value to the .next (next node obj)
-        current = current.next
+        // console.log(count, current)
+        // current = current.next
     }
     // when count = index, return that node (current)
     return current
 }
 
 // GET KTHTOLAST  retrieve kth from last element
-
+function getKthToLast(val){
+    // get size/ length (-1) of list, subtract val from it
+    const length = this.size() + 1
+    const position = length - val
+    console.log("position", position)
+    const valAtPosition = getKth(position, this.head)   
+    return valAtPosition
+}
 
 
   module.exports = {
@@ -128,6 +137,7 @@ function getKth(index){
     getFirst, 
     getLast,
     getKth,
+    getKthToLast,
 
   }
 // module.exports = {
