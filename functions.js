@@ -78,7 +78,6 @@ function clear(){
 }
 // TO ARRAY 
 function toArray(head = this.head){
-    const last = getLast(head)
     const arr = []
     let current = head
     while(current){

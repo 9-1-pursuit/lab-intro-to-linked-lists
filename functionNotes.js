@@ -153,7 +153,6 @@ function clear(){
 
 // TO ARRAY convert data from linked list to an array
 function toArray(head = this.head){
-    const last = getLast(head)
     const arr = []
     let current = head
 
