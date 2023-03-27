@@ -1,3 +1,5 @@
+// const { Node } = require("./solution.js");
+
 class Node {
     constructor(data, next = null){
       this.data = data
@@ -72,6 +74,7 @@ function search(key){
 
 // GET FIRST
  // ??? test are switched first === 0 or first === 1?
+//   if first == 0 jus return head
  function getFirst(){
     let current = this.head
     let count = 0
@@ -92,6 +95,19 @@ function  getLast(){
     return current 
   }
 
+//    GET KTH retrieve kth (position -> index + 1) element
+function getKth(index){
+    let current = this.head
+    let count = 1
+    while(count < index){
+        count++
+        // update current value to the .next (next node obj)
+        current = current.next
+    }
+    // when count = index, return that node (current)
+    return current
+}
+
   module.exports = {
     insert,
     size,
@@ -99,6 +115,7 @@ function  getLast(){
     search,
     getFirst, 
     getLast,
+    getKth,
 
   }
 // module.exports = {

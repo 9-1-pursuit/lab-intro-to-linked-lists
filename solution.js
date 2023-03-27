@@ -1,5 +1,6 @@
 const { nums, words } = require("./data/data.js");
-const { insert, size, deleteNode, search, getFirst, getLast } = require("./functionNotes")
+const { insert, size, deleteNode, search, getFirst, getLast, getKth } = require("./functionNotes")
+
 // Create a Node class with properties
 class Node {
   constructor(data, next = null){
@@ -8,7 +9,7 @@ class Node {
   }
 }
 
-// // Create a linked list with properties
+// Create a linked list with properties
 class LinkedList {
   constructor(head = null){
     this.head = head 
@@ -18,6 +19,7 @@ class LinkedList {
     this.delete = deleteNode
     this.getFirst = getFirst
     this.getLast = getLast
+    this.getKth = getKth
   }
  
 }
