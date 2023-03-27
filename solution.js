@@ -8,6 +8,9 @@ const {
   getLast, 
   getKth,
   getKthToLast,
+  isEmpty,
+  clear,
+
 
  } = require("./functionNotes")
 
@@ -31,6 +34,8 @@ class LinkedList {
     this.getLast = getLast
     this.getKth = getKth
     this.getKthToLast = getKthToLast
+    this.isEmpty = isEmpty
+    this.clear = clear
   }
  
 }

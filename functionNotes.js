@@ -123,9 +123,19 @@ function getKthToLast(val){
     // get size/ length (-1) of list, subtract val from it
     const length = this.size() + 1
     const position = length - val
-    console.log("position", position)
     const valAtPosition = getKth(position, this.head)   
     return valAtPosition
+}
+
+// IS EMPTY  check if list is empty
+function isEmpty(){
+    const length = this.size()
+    return length === 0
+}
+
+// CLEAR clear the linked list
+function clear(){
+    this.head = null
 }
 
 
@@ -138,6 +148,10 @@ function getKthToLast(val){
     getLast,
     getKth,
     getKthToLast,
+    isEmpty,
+    clear,
+    
+
 
   }
 // module.exports = {
