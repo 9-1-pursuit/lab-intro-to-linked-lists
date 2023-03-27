@@ -2,6 +2,7 @@ const { Node, LinkedList } = require("../solution.js");
 
 const { nums, words } = require("../data/data.js");
 const { exportAllDeclaration, logicalExpression } = require("@babel/types");
+const { inspect } = require('util')
 
 describe("Linked Lists", () => {
   let wordList, numList;
@@ -15,6 +16,7 @@ describe("Linked Lists", () => {
       numList.insert(num);
     }
   });
+  
 
   test("Can create a new node", () => {
     let newNode = new Node(111);
