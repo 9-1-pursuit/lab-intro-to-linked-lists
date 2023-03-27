@@ -6,6 +6,7 @@ class Node {
       this.next = next
     }
   }
+
   
 // INSERT (adds to the tail)
 /* function insert(data){
@@ -170,20 +171,28 @@ function containsDuplicates(){
     return duplicate
 }
 
-  module.exports = {
-    insert,
-    size,
-    deleteNode,
-    search,
-    getFirst, 
-    getLast,
-    getKth,
-    getKthToLast,
-    isEmpty,
-    clear,
-    toArray,
-    containsDuplicates,
-  }
+//   test variable/nodelist
+// const newNode = new LinkedList();
+// for (let num of nums) {
+//   newNode.insert(num);
+// }
+// newNode.delete(3)
+// console.log(newNode.toArray())
+
+//   module.exports = {
+//     insert,
+//     size,
+//     deleteNode,
+//     search,
+//     getFirst, 
+//     getLast,
+//     getKth,
+//     getKthToLast,
+//     isEmpty,
+//     clear,
+//     toArray,
+//     containsDuplicates,
+//   }
 // module.exports = {
 //     insert : insert,
 //     size : size,
