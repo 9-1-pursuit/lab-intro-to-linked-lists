@@ -15,8 +15,6 @@ describe("Linked Lists", () => {
     for (let num of nums) {
       numList.insert(num);
     }
-    // console.log(numList.getLast())
-    // console.log("num",inspect(numList, {showHidden : true, colors :true, depth:12}))
   });
   
 
@@ -81,7 +79,7 @@ describe("Linked Lists", () => {
   });
 
   test("Convert data from linked lists into an array", () => {
-    expect(numList.toArray()).toEqual([0, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]);
+    expect(numList.toArray()).toEqual([0, 9, 8, 7, 6, 5, 4, 3, 2, 1]);
   });
 
   test("Check for duplicates", () => {

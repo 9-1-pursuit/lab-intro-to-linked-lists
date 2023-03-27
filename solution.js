@@ -41,11 +41,11 @@ class LinkedList {
   }
  
 }
-// const newNode = new LinkedList();
-// for (let num of nums) {
-//   newNode.insert(num);
-// }
-// console.log(newNode.toArray())
+const newNode = new LinkedList();
+for (let num of nums) {
+  newNode.insert(num);
+}
+console.log(newNode.toArray())
 /* 
   [
   0, 10, 9, 8, 7,

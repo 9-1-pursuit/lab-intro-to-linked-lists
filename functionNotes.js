@@ -44,28 +44,39 @@ function insert(data){
     return count
   }
 
-//   DELETE
-function deleteNode(index){
+//   DELETE this deletes at given index value
+// function deleteNode(index){
+//     let current = this.head
+//     let count = 0
+//     /* 
+//     if delete at index 2
+//       store previous and current.next nodes (prev = 1, curr.next =3)
+//       when index = count (prev.next = curr.next, 1.next = 3)
+//       */
+//     let prevNode = null
+//     // if index = 0, head, set head to null
+//     if(index === 0) this.head = null
+//     else {
+//       while(count < index){
+//         // up until index
+//         prevNode = current
+//         current = current.next
+//         count++
+//       }
+//       prevNode.next = current.next
+//     }
+//   }
+
+// DELETE deletes where the node data key === inputted key value
+function deleteNode(key){
     let current = this.head
-    let count = 0
-    /* 
-    if delete at index 2
-      store previous and current.next nodes (prev = 1, curr.next =3)
-      when index = count (prev.next = curr.next, 1.next = 3)
-      */
     let prevNode = null
-    // if index = 0, head, set head to null
-    if(index === 0) this.head = null
-    else {
-      while(count < index){
-        // up until index
+    while(current.data !== key){
         prevNode = current
-        current = current.next
-        count++
-      }
-      prevNode.next = current.next
+        current=current.next
     }
-  }
+    prevNode.next = current.next
+}
 
 //   SEARCH search an element by key (value of data key) and return node
 function search(key){
@@ -122,7 +133,7 @@ function getKth(val, head = this.head){
 // GET KTHTOLAST  retrieve kth from last element
 function getKthToLast(val){
     // get size/ length (-1) of list, subtract val from it
-    const length = this.size() + 1
+    const length = this.size() 
     const position = length - val
     const valAtPosition = getKth(position, this.head)   
     return valAtPosition
