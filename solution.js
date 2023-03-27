@@ -8,137 +8,111 @@ class Node {
 }
 
 class LinkedList {
-  constructor() {
-    this.head = null;
+  constructor(head = null) {
+    this.head = head;
   }
-
   insert(data) {
-    const node = new Node(data);
+    let newNode = new Node(data);
     if (!this.head) {
-      this.head = node;
+      this.head = newNode;
     } else {
-      let current = this.head;
-      while (current.next) {
-        current = current.next;
-      }
-      current.next = node;
+      newNode.next = this.head;
+      this.head = newNode;
     }
   }
-
   size() {
     let count = 0;
-    let current = this.head;
-    while (current) {
+    let node = this.head;
+    while (node) {
       count++;
-      current = current.next;
+      node = node.next;
     }
     return count;
   }
-
-  deleteByKey(key) {
-    if (!this.head) {
-      return null;
+  delete(data) {
+    let node = this.head;
+    let counter = 0;
+    while (node.data !== data && node.next) {
+      counter++;
+      node = node.next;
     }
-    if (this.head.data === key) {
-      this.head = this.head.next;
-      return true;
+    let found = node;
+    node = this.head;
+    for (let i = 1; i < counter; i++) {
+      node = node.next;
     }
-    let current = this.head;
-    let prev = null;
-    while (current) {
-      if (current.data === key) {
-        prev.next = current.next;
-        return true;
-      }
-      prev = current;
-      current = current.next;
-    }
-    return false;
+    node.next = found.next;
   }
 
   getFirst() {
-    if (!this.head) {
-      return null;
-    }
-    return this.head.data;
+    return this.head;
   }
-
   getLast() {
-    if (!this.head) {
-      return null;
+    let node = this.head;
+    if (!this.head) return null;
+    while (node.next) {
+      node = node.next;
     }
-    let current = this.head;
-    while (current.next) {
-      current = current.next;
-    }
-    return current.data;
+    return node;
   }
-
   search(key) {
-    let current = this.head;
-    while (current) {
-      if (current.data === key) {
-        return current.data;
-      }
-      current = current.next;
+    let node = this.head;
+    while (node !== null && node.data !== key) {
+      node = node.next;
     }
-    return null;
+    return node;
   }
-
-  getKth(k) {
-    let current = this.head;
+  getKth(key) {
+    let node = this.head;
     let count = 1;
-    while (current && count < k) {
-      current = current.next;
+    while (node !== null && count < key) {
+      node = node.next;
       count++;
     }
-    return current ? current.data : null;
+    return node;
   }
+  getKthToLast(key) {
+    if (key < 1) return null;
 
-  getKthToLast(k) {
-    let current = this.head;
-    let runner = this.head;
-    let count = 1;
-    while (runner && count < k) {
-      runner = runner.next;
-      count++;
+    let p1 = this.head;
+    let p2 = this.head;
+
+    for (let i = 0; i < key; i++) {
+      if (!p2) return null;
+      p2 = p2.next;
     }
-    if (!runner) {
-      return null;
+
+    while (p2.next) {
+      p2 = p2.next;
+      p1 = p1.next;
     }
-    while (runner.next) {
-      current = current.next;
-      runner = runner.next;
-    }
-    return current.data;
+
+    return p1;
   }
 
   isEmpty() {
     return this.head === null;
   }
-
   clear() {
     this.head = null;
   }
-
   toArray() {
-    const result = [];
-    let current = this.head;
-    while (current) {
-      result.push(current.data);
-      current = current.next;
+    let arr = [];
+    let node = this.head;
+    while (node) {
+      arr.push(node.data);
+      node = node.next;
     }
-    return result;
+    return arr;
   }
-
   containsDuplicates() {
-    const set = new Set();
+    const seen = [];
     let current = this.head;
     while (current) {
-      if (set.has(current.data)) {
+      if (seen.includes(current.data)) {
         return true;
       }
-      set.add(current.data);
+      seen.push(current.data);
       current = current.next;
     }
     return false;
