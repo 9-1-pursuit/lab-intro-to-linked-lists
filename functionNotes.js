@@ -71,6 +71,7 @@ function deleteNode(index){
 function search(key){
     // loop until .data = key value and return that node
     let current = this.head
+    // in case in future want to know position value was found at
     let count = 0
     while(current.data !== key){
         current = current.next
@@ -94,9 +95,9 @@ function search(key){
   }
 
 //   GET LAST
-function  getLast(){
+function  getLast(head = this.head){
     // loop until .next = null
-    let current = this.head
+    let current = head
     while (current.next){
       current = current.next
     }
@@ -108,9 +109,9 @@ function getKth(val, head = this.head){
     let current = head
     let count = 1
     while(count < val){
+        // update current value to the .next (next node obj)
         current = current.next
         count++
-        // update current value to the .next (next node obj)
         // console.log(count, current)
         // current = current.next
     }
@@ -138,6 +139,25 @@ function clear(){
     this.head = null
 }
 
+// TO ARRAY convert data from linked list to an array
+function toArray(head = this.head){
+    const last = getLast(head)
+    console.log("last", last)
+    const arr = []
+    let current = head
+
+    while(current){
+        arr.push(current.data)
+        current = current.next
+    }
+    return arr
+}
+
+// DUPLICATES check for duplicates - return true if contains duplicates, false if not
+function containsDuplicates(){
+    const arr = toArray(this.head)
+    console.log(arr)
+}
 
   module.exports = {
     insert,
@@ -150,8 +170,8 @@ function clear(){
     getKthToLast,
     isEmpty,
     clear,
-    
-
+    toArray,
+    containsDuplicates,
 
   }
 // module.exports = {
