@@ -1,3 +1,10 @@
+class Node {
+    constructor(data, next = null){
+      this.data = data
+      this.next = next
+    }
+  }
+  
 // INSERT
 function insert(data){
     // create a new node with given data
@@ -62,3 +69,43 @@ function search(key){
     }
     return current
 }
+
+// GET FIRST
+ // ??? test are switched first === 0 or first === 1?
+ function getFirst(){
+    let current = this.head
+    let count = 0
+    while(count < 1){
+      current = current.next
+      count ++
+    }
+    return current
+  }
+
+//   GET LAST
+function  getLast(){
+    // loop until .next = null
+    let current = this.head
+    while (current.next){
+      current = current.next
+    }
+    return current 
+  }
+
+  module.exports = {
+    insert,
+    size,
+    deleteNode,
+    search,
+    getFirst, 
+    getLast,
+
+  }
+// module.exports = {
+//     insert : insert,
+//     size : size,
+//     deleteNode : deleteNode,
+//     search : search,
+//     getFirst : getFirst,
+//     getLast : getLast,
+// }

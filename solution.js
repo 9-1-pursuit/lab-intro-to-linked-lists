@@ -1,5 +1,5 @@
 const { nums, words } = require("./data/data.js");
-
+const { insert, size, deleteNode, search, getFirst, getLast } = require("./functionNotes")
 // Create a Node class with properties
 class Node {
   constructor(data, next = null){
@@ -8,75 +8,23 @@ class Node {
   }
 }
 
-// Create a linked list with properties
+// // Create a linked list with properties
 class LinkedList {
   constructor(head = null){
     this.head = head 
+    this.size = size
+    this.insert= insert
+    this.search = search
+    this.delete = deleteNode
+    this.getFirst = getFirst
+    this.getLast = getLast
   }
-  insert(data){
-    let newNode = new Node(data)
-    if(!this.head) this.head = newNode
-    else {
-      let current = this.head
-      while(current.next) current = current.next
-      current.next = newNode
-    }
-  }
-  size(){
-    let current = this.head
-    let count = 0
-    while(current) {
-      count++
-      current = current.next
-    }
-    return count
-  }
-  delete(index){
-    let current = this.head
-    let count = 0
-    let prevNode = null
-    if(index === 0) this.head = null
-    else {
-      while(count < index){
-        prevNode = current
-        current = current.next
-        count++
-      }
-      prevNode.next = current.next
-    }
-  }
-  // ??? test are switched first === 0 or first === 1?
-  getFirst(){
-    let current = this.head
-    let count = 0
-    while(count < 1){
-      current = current.next
-      count ++
-    }
-    return current
-  }
-  getLast(){
-    // loop until .next = null
-    let current = this.head
-    while (current.next){
-      current = current.next
-    }
-    return current 
-  }
-  search(key){
-    let current = this.head
-    let count = 0
-    while(current.data !== key){
-        current = current.next
-        count++
-    }
-    return current
-  }
+ 
 }
-const node1 = new Node(1, new Node(2))
-const linked1 = new LinkedList(node1)
-console.log(linked1)
-console.log(linked1.search(1))
+// const node1 = new Node(1, new Node(2))
+// const linked1 = new LinkedList(node1)
+// console.log(linked1)
+// console.log(linked1.search(1))
 
 module.exports = {
   Node,
