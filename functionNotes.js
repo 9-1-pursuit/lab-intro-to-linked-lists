@@ -7,8 +7,8 @@ class Node {
     }
   }
   
-// INSERT
-function insert(data){
+// INSERT (adds to the tail)
+/* function insert(data){
     // create a new node with given data
     let newNode = new Node(data)
     // if linked list is empty (head = null), set the newNode to the head
@@ -22,7 +22,14 @@ function insert(data){
       }
       current.next = newNode
     }
-  }
+  } */
+
+//   INSERT ALT. (sets new value as the head, the current head, becomes the .next)
+function insert(data){
+    let newNode = new Node(data, this.head)
+    this.head = newNode
+}
+
 
 // SIZE
   function size(){
@@ -76,13 +83,14 @@ function search(key){
  // ??? test are switched first === 0 or first === 1?
 //   if first == 0 jus return head
  function getFirst(){
-    let current = this.head
-    let count = 0
-    while(count < 1){
-      current = current.next
-      count ++
-    }
-    return current
+    return this.head
+    // let current = this.head
+    // let count = 0
+    // while(count < 1){
+    //   current = current.next
+    //   count ++
+    // }
+    // return current
   }
 
 //   GET LAST
@@ -107,6 +115,10 @@ function getKth(index){
     // when count = index, return that node (current)
     return current
 }
+
+// GET KTHTOLAST  retrieve kth from last element
+
+
 
   module.exports = {
     insert,
