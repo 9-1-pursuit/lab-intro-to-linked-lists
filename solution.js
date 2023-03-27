@@ -97,7 +97,16 @@ class LinkedList {
     return this.head === null;
   }
   clear() {
-    this.head === null;
+    this.head = null;
+  }
+  toArray(){
+    const arr = []
+    let node = this.head
+    while(node){
+arr.push(node.data)
+node = node.next
+    }
+    return arr
   }
 }
 
