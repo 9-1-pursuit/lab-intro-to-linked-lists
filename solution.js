@@ -14,7 +14,6 @@ class LinkedList {
     this.head = head 
     // this.size = this.size()
   }
-
   // insert
   insert(data){
     let newNode = new Node(data)
@@ -29,7 +28,6 @@ class LinkedList {
       current.next = newNode
     }
   }
-
   // size
   size(){
     let current = this.head
@@ -39,6 +37,27 @@ class LinkedList {
       current = current.next
     }
     return count
+  }
+  // delete by key/ at index
+  delete(index){
+    let current = this.head
+    let count = 0
+    /* 
+      store previous and current.next nodes (prev = 1, curr.next =3)
+      when index = count (prev.next = curr.next, 1.next = 3)
+      */
+    let prevNode = null
+    // first index
+    if(index === 0) this.head = null
+    else {
+      while(count < index){
+        // up until index
+        prevNode = current
+        current = current.next
+        count++
+      }
+      prevNode.next = current.next
+    }
   }
 }
 const node1 = new Node(1, new Node(2))
