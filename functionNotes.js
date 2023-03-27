@@ -153,7 +153,6 @@ function clear(){
 // TO ARRAY convert data from linked list to an array
 function toArray(head = this.head){
     const last = getLast(head)
-    console.log("last", last)
     const arr = []
     let current = head
 
@@ -167,7 +166,8 @@ function toArray(head = this.head){
 // DUPLICATES check for duplicates - return true if contains duplicates, false if not
 function containsDuplicates(){
     const arr = toArray(this.head)
-    console.log(arr)
+    const duplicate = arr.some((el, i, arr) => arr.includes(el, i+1))
+    return duplicate
 }
 
   module.exports = {
@@ -183,7 +183,6 @@ function containsDuplicates(){
     clear,
     toArray,
     containsDuplicates,
-
   }
 // module.exports = {
 //     insert : insert,

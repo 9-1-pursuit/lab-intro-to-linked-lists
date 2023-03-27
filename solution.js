@@ -45,14 +45,8 @@ const newNode = new LinkedList();
 for (let num of nums) {
   newNode.insert(num);
 }
-console.log(newNode.toArray())
-/* 
-  [
-  0, 10, 9, 8, 7,
-  6,  5, 4, 3, 2,
-  1
-]
-*/ 
+// newNode.delete(3)
+// console.log(newNode.toArray())
 
 module.exports = {
   Node,
