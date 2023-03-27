@@ -31,7 +31,6 @@ class LinkedList {
     }
     return count
   }
-  // delete by key/ at index
   delete(index){
     let current = this.head
     let count = 0
@@ -46,10 +45,38 @@ class LinkedList {
       prevNode.next = current.next
     }
   }
+  // ??? test are switched first === 0 or first === 1?
+  getFirst(){
+    let current = this.head
+    let count = 0
+    while(count < 1){
+      current = current.next
+      count ++
+    }
+    return current
+  }
+  getLast(){
+    // loop until .next = null
+    let current = this.head
+    while (current.next){
+      current = current.next
+    }
+    return current 
+  }
+  search(key){
+    let current = this.head
+    let count = 0
+    while(current.data !== key){
+        current = current.next
+        count++
+    }
+    return current
+  }
 }
 const node1 = new Node(1, new Node(2))
 const linked1 = new LinkedList(node1)
-console.log(linked1.size)
+console.log(linked1)
+console.log(linked1.search(1))
 
 module.exports = {
   Node,

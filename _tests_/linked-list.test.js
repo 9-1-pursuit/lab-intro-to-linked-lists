@@ -15,6 +15,7 @@ describe("Linked Lists", () => {
       numList.insert(num);
     }
   });
+  
 
   test("Can create a new node", () => {
     let newNode = new Node(111);

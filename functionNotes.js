@@ -50,3 +50,15 @@ function deleteNode(index){
       prevNode.next = current.next
     }
   }
+
+//   SEARCH search an element by key (value of data key) and return node
+function search(key){
+    // loop until .data = key value and return that node
+    let current = this.head
+    let count = 0
+    while(current.data !== key){
+        current = current.next
+        count++
+    }
+    return current
+}
