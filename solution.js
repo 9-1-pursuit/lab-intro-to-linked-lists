@@ -21,25 +21,52 @@ class LinkedList {
     }
   }
   size(){
-    let count = 0;
-    let node = this.head;
+    let count = 0
+    let node = this.head
     while (node) {
-      count++;
-      node = node.next;
+      count++
+      node = node.next
     }
-    return count;
+    return count
   }
+  delete(keyToDel) {
+    console.log('finding key number', keyToDel)
+    let key = 0
+    let currentEl = this.head;
+    let prevEl = null 
+    while (currentEl) { 
+      console.log('the current element (key #', key, ') is:\n', currentEl, '\n')
+      if (keyToDel === key) {
+        console.log('this is a match!')
+        if (prevEl) {
+          prevEl.next = currentEl.next
+        } else {
+          this.head = currentEl.next
+        }
+        return true
+      }
+      prevEl = currentEl
+      currentEl = currentEl.next
+      key++
+    }
+    return false;
+  }
+  getFirst() {
+    return this.head
+  }
+  
 }
 
 const firstNode = new Node (words[0])
-console.log(firstNode)
 const linkedList1 = new LinkedList (firstNode)
 
-console.log(linkedList1)
+words.forEach(word => {
+  linkedList1.insert(word)
+})
 
-linkedList1.insert(words[1])
+// console.log('linked list head Node:',linkedList1.head)
 
-console.log(linkedList1)
+linkedList1.delete(4)
 
 
 
