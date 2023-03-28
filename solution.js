@@ -95,7 +95,28 @@ class LinkedList {
     return !this.head;
   }
   clear() {
-    this.head = null
+    this.head = null;
+  }
+  toArray() {
+    let node = this.head;
+    let arr = [];
+    while (node) {
+      arr.push(node.data);
+      node = node.next;
+    }
+    return arr;
+  }
+  containsDuplicates() {
+    let node = this.head;
+    let arr = [];
+    while (node) {
+      if (arr.includes(node.data)) {
+        return true;
+      }
+      arr.push(node.data)
+      node = node.next;
+    }
+    return false;
   }
 }
 
@@ -114,12 +135,17 @@ class LinkedList {
 //   wordsList.insert(word)
 // }
 
+
+const nums2 = [1, 2, 2, 3, 4]
+
 const numList = new LinkedList();
-for (let num of nums) {
+for (let num of nums2) {
   numList.insert(num);
 }
 
-console.log(numList.getKth(2));
+// console.log(numList.containsDuplicates())
+
+// console.log(numList.toArray());
 // console.log(wordsList.getLast());
 
 // console.log(numList.size());
