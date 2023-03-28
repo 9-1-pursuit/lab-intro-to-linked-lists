@@ -54,19 +54,57 @@ class LinkedList {
   getFirst() {
     return this.head
   }
+
+  getLast() {
+    let currentEl = this.head;
+    while (currentEl && currentEl.next) { // change the condition to check currentEl.next
+      currentEl = currentEl.next;
+    }
+    return currentEl; // return the last element, which could be the head if there's only one element
+  }
+  search(keyToFind) {
+    console.log('finding key number', keyToFind)
+    let key = 0
+    let currentEl = this.head;
+    while (currentEl.data !== keyToFind) { 
+      // console.log('the current element (key #', key, ') is:\n', currentEl, '\n')
+      currentEl = currentEl.next
+      key++
+    }
+    return currentEl
+  }
+
+  getKth(number){
+    let currentEl = this.head
+    let count = 1
+    while (count < number){
+      count++
+      currentEl = currentEl.next
+    }
+    return currentEl
+  }
+
+  getKthToLast(number){
+    const length = this.size() + 1
+    const ourPos = length - number
+    const output = this.getKth(ourPos)
+    return output
+  }
+  
   
 }
 
-const firstNode = new Node (words[0])
+const firstNode = new Node (nums[0])
 const linkedList1 = new LinkedList (firstNode)
 
-words.forEach(word => {
-  linkedList1.insert(word)
+nums.forEach(num => {
+  linkedList1.insert(num)
 })
 
 // console.log('linked list head Node:',linkedList1.head)
 
-linkedList1.delete(4)
+// linkedList1.delete(4)
+console.log(linkedList1.getFirst())
 
 
 
