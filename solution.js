@@ -71,8 +71,56 @@ class LinkedList {
     // Data not found
     return false;
   }
+  search(index) {
+    let currentNode = this.head;
+    let count = 0;
+    while (currentNode) {
+      if (currentNode.data === index) {
+        return currentNode;
+      }
+      count++;
+      currentNode = currentNode.next;
+    }
+    return null;
+  }
+
+  isEmpty() {
+    return this.head === null;
+  }
+
+  getKth(index) {
+    let currentNode = this.head;
+    let count = 0;
+    while (currentNode) {
+      if (count === index) {
+        return currentNode;
+      }
+      count++;
+    }
+    return null;
+  }
+
   clear() {
     this.head = null;
+  }
+
+  containsDuplicates() {
+    let currentNode = this.head;
+    // let count = 0;
+    let dupArr = [];
+    if (!currentNode) {
+      return;
+    }
+    while (currentNode.data) {
+      dupArr.push(currentNode.data);
+
+      // if (!currentNode.next) {
+      //   break;
+      // }
+      count++;
+      // console.log(counter);
+    }
+    return dupArr;
   }
 }
 
@@ -90,7 +138,7 @@ for (let i = 1; i < nums.length; i++) {
   currentNode = followingNode;
 }
 
-console.log(inspect(newList, { showHidden: true, colors: true, depth: 12 }));
+// console.log(inspect(newList, { showHidden: true, colors: true, depth: 12 }));
 
 module.exports = {
   Node,
