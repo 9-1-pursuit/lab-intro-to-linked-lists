@@ -81,7 +81,18 @@ class LinkedList {
     return curr
   }
 
-  getKth() {}
+  getKth(el) {
+    let index = 0
+    let curr = this.head
+    while (curr) {
+      if (curr.data === el) {
+        return index
+      }
+      curr = curr.next
+      index++
+    }
+    return -1
+  }
 
   getKthToLast() {}
 
