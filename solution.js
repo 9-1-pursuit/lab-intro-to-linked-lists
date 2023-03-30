@@ -31,8 +31,8 @@ class LinkedList {
   // function that counts the number of nodes in a linked list.
   // declaring a count variable and setting it to 0.
   // declare a variable to store the current node and sets it to the head of the list.
-  //  while loop will iterate thru each node in the list.
-  //  increments the count variable by one for each node and then sets the current node to the next node in the list.
+  // while loop will iterate thru each node in the list.
+  // increments the count variable by one for each node and then sets the current node to the next node in the list.
   // When loop ends, the function returns the count variable, which is the number of nodes in the list.
 
   size() {
@@ -81,17 +81,14 @@ class LinkedList {
     return curr
   }
 
-  getKth(el) {
-    let index = 0
+  getKth(key) {
+    let count = 1
     let curr = this.head
-    while (curr) {
-      if (curr.data === el) {
-        return index
-      }
+    while (curr < key) {
       curr = curr.next
-      index++
+      count++
     }
-    return -1
+    return curr
   }
 
   getKthToLast() {}
@@ -127,6 +124,7 @@ class LinkedList {
     return false
   }
 }
+
 module.exports = {
   Node,
   LinkedList,
