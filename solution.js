@@ -91,37 +91,67 @@ class LinkedList {
   getKth(index) {
     let currentNode = this.head;
     let count = 0;
-    while (currentNode) {
-      if (count === index) {
-        return currentNode;
-      }
+    while (currentNode !== null) {
       count++;
+      if (count === index) {
+        break;
+      }
+      currentNode = currentNode.next;
     }
-    return null;
+    return currentNode;
   }
 
   clear() {
     this.head = null;
   }
 
-  containsDuplicates() {
+  toArray(LinkedList) {
     let currentNode = this.head;
-    // let count = 0;
-    let dupArr = [];
-    if (!currentNode) {
-      return;
+    let arr = [];
+    while (currentNode) {
+      arr.push(currentNode.data);
+      currentNode = currentNode.next;
     }
-    while (currentNode.data) {
-      dupArr.push(currentNode.data);
 
-      // if (!currentNode.next) {
-      //   break;
-      // }
-      count++;
-      // console.log(counter);
-    }
-    return dupArr;
+    return arr;
   }
+
+  containsDuplicates() {
+    let dupArr = this.toArray(LinkedList);
+    const map = new Map();
+    for (let i = 0; i < dupArr.length; i++) {
+      if (!map.has(dupArr[i])) map.set(dupArr[i], 1);
+      else {
+        map.set(dupArr[i], map.get(dupArr[i]) + 1);
+      }
+    }
+    for (let [key, value] of map) {
+      if (value > 1) return true;
+    }
+    return false;
+  }
+
+  // containsDuplicates() {
+  //   let node = this.head;
+  //   let newArray = [];
+  //   do {
+  //     newArray.push(node.data);
+  //     node = node.next;
+  //   } while (node !== null);
+  //   let counter = 0;
+  //   for (let arr of newArray) {
+  //     let index = 0;
+  //     if (arr === arr[index]) {
+  //       counter++;
+  //     }
+  //     index++;
+  //   }
+  //   if (counter > 1) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 }
 
 // this will be the lists' head
@@ -138,6 +168,7 @@ for (let i = 1; i < nums.length; i++) {
   currentNode = followingNode;
 }
 
+// console.log(nums);
 // console.log(inspect(newList, { showHidden: true, colors: true, depth: 12 }));
 
 module.exports = {
