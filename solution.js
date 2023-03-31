@@ -101,11 +101,24 @@ class LinkedList {
     return currentNode;
   }
 
+  getKthToLast(index) {
+    let node = this.size();
+    // let currentNode = this.head;
+    // while (currentNode.next !== null) {
+    //   currentNode = currentNode.next;
+    //   if (currentNode.next === null) {
+    //     let lastNode = currentNode;
+    //     while () {
+    //     }
+    //   }
+    // }
+  }
+
   clear() {
     this.head = null;
   }
 
-  toArray(LinkedList) {
+  toArray() {
     let currentNode = this.head;
     let arr = [];
     while (currentNode) {
@@ -117,8 +130,9 @@ class LinkedList {
   }
 
   containsDuplicates() {
-    let dupArr = this.toArray(LinkedList);
+    let dupArr = this.toArray();
     const map = new Map();
+    let dupBool = false;
     for (let i = 0; i < dupArr.length; i++) {
       if (!map.has(dupArr[i])) map.set(dupArr[i], 1);
       else {
@@ -126,9 +140,24 @@ class LinkedList {
       }
     }
     for (let [key, value] of map) {
-      if (value > 1) return true;
+      if (value > 1) dupBool = true;
     }
-    return false;
+    return dupBool;
+  }
+
+  getKthToLast(index) {
+    let counter = 0;
+    let node = this.head;
+    let nodeCount = this.size();
+
+    while (node) {
+      node = node.next;
+      counter++;
+      if (counter === nodeCount - index - 1) {
+        break;
+      }
+    }
+    return node;
   }
 
   // containsDuplicates() {
