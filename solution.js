@@ -24,12 +24,8 @@ class LinkedList {
   // insert link list
   insert(data) {
     let newNode = new Node(data)
-    if (!this.head) {
-      this.head = newNode
-    } else {
-      newNode.next = this.head
-      this.head = newNode
-    }
+    newNode.next = this.head
+    this.head = newNode
   }
   // function that counts the number of nodes in a linked list.
   // declaring a count variable and setting it to 0.
@@ -73,7 +69,7 @@ class LinkedList {
   // getLast element
   getLast() {
     let curr = this.head
-    if (!this.head) return null
+    // if (!this.head) return null
     while (curr.next) {
       curr = curr.next
     }
@@ -91,7 +87,7 @@ class LinkedList {
 
   // retrieve kth element
   getKth(key) {
-    let count = 1
+    let count = 0
     let curr = this.head
     while (curr < key && count !== key) {
       curr = curr.next
@@ -120,7 +116,7 @@ class LinkedList {
 
   // clear the linked list
   clear() {
-    this.head = null
+    return (this.head = null)
   }
 
   // convert data from linked list to an array
@@ -131,7 +127,6 @@ class LinkedList {
       arr.push(curr.data)
       curr = curr.next
     }
-
     return arr
   }
 
