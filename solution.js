@@ -53,7 +53,7 @@ class LinkedList {
   delete(data) {
     let curr = this.head
     let count = 0
-    while (curr.data == data && curr.next) {
+    while (curr.data !== data && curr.next) {
       count++
       curr = curr.next
     }
