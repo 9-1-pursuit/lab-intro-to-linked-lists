@@ -24,8 +24,12 @@ class LinkedList {
   // insert link list
   insert(data) {
     let newNode = new Node(data)
-    newNode.next = this.head
-    this.head = newNode
+    if (!this.head) {
+      this.head = newNode
+    } else {
+      newNode.next = this.head
+      this.head = newNode
+    }
   }
   // function that counts the number of nodes in a linked list.
   // declaring a count variable and setting it to 0.
@@ -49,7 +53,7 @@ class LinkedList {
   delete(data) {
     let curr = this.head
     let count = 0
-    while (curr.data !== data && curr.next) {
+    while (curr.data == data && curr.next) {
       count++
       curr = curr.next
     }
