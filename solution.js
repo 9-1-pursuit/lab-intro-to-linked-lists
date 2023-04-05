@@ -90,7 +90,64 @@ class LinkedList {
     const output = this.getKth(ourPos)
     return output
   }
+  isEmpty(){
+    if(!this.head){
+      return true
+    } else {
+      return false
+    }
+  }
+  clear(){
+    console.log('clear method',this.head)
+    let currentEl = this.head;
+    this.head = null
+    console.log('clear method after null',this.head)
+
+  }
+  toArray(){
+
+    // start at head node, take data append to array,
+    //  repeat until no nodes exist / end of list
+    let outputArr = []
+    let i = 0
+    let currentEl = this.head
+    
+    while(currentEl){
+      console.log(`iteration num ${i}`,currentEl.data)
+      let num = currentEl.data
+      console.log(num)
+      outputArr.push(num)
+      // outputArr.push(currentEl.data)
+      i++
+      currentEl = currentEl.next
+    } 
+    // console.log(outputArr)
+    console.log(outputArr)
+    return outputArr
+  }
+
+  containsDuplicates() {
+    // use a set to keep track of unique elements
+    const uniqueSet = new Set();
+    let currentEl = this.head;
+    while (currentEl) {
+      if (uniqueSet.has(currentEl.data)) {
+        return true;
+      }
+      uniqueSet.add(currentEl.data);
+      currentEl = currentEl.next;
+    }
+    return false;
+  }
+
   
+  /*
+[
+  0, 10, 9, 8, 7,
+  6,  5, 4, 3, 2,
+  1,  1
+]
+  */
   
 }
 
@@ -104,8 +161,8 @@ nums.forEach(num => {
 // console.log('linked list head Node:',linkedList1.head)
 
 // linkedList1.delete(4)
-console.log(linkedList1.getFirst())
-
+// console.log(linkedList1.getFirst())
+console.log(linkedList1.toArray())
 
 
 module.exports = {
